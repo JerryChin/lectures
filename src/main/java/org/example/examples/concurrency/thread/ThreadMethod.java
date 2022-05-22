@@ -5,7 +5,7 @@ import static org.example.examples.util.Printer.print;
 /**
  * 线程方法演示
  */
-public class UsingThread2 {
+public class ThreadMethod {
 
     public static void main(String[] args) throws InterruptedException {
 

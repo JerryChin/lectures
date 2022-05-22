@@ -56,7 +56,7 @@ public class SynchronizedStatement {
         }
     }
 
-    private interface EvenCounter {
+    public interface EvenCounter {
         void increment();
         long get();
     }

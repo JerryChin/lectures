@@ -10,7 +10,7 @@ import static org.example.examples.util.Printer.print;
  * Hello world!
  *
  */
-public class ThreadPoolExecutor1 {
+public class ThreadPoolExecutorClass {
 
     public static void main(String[] args ) {
 

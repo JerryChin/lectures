@@ -3,7 +3,7 @@ package org.example.examples.concurrency.thread;
 /**
  * 创建线程的两种方式
  */
-public class CreatingThread1 {
+public class CreatingThread {
 
     public static void main(String[] args) {
 

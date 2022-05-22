@@ -8,7 +8,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 /**
  * Executors Utility 类提供了多种类型的 Executor 可以拿来即用。
  */
-public class Executor2 {
+public class ExecutorsClass {
 
     public static void main(String[] args) {
 

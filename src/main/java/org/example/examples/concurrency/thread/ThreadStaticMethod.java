@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * 线程静态方法演示
  */
-public class UsingThread1 {
+public class ThreadStaticMethod {
 
     public static void main(String[] args) throws InterruptedException {
 

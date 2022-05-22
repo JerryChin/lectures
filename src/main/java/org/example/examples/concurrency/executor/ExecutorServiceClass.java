@@ -11,7 +11,7 @@ import static org.example.examples.util.Printer.print;
 /**
  * ExecutorService 增加了管理执行器的一些方法，并且支持取消或者等待执行完成。
  */
-public class Executor3 {
+public class ExecutorServiceClass {
 
     public static void main(String[] args) {
         ExecutorService executorService = Executors.newSingleThreadExecutor();

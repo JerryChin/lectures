@@ -4,7 +4,7 @@ package org.example.examples.concurrency.thread;
 /**
  * 创建线程时可以指定的参数
  */
-public class CreatingThread2 {
+public class CreatingThreadWithParameters {
 
     public static void main(String[] args) {
         Thread thread1 = new Thread(() -> {

@@ -1,8 +1,7 @@
 package org.example.examples.concurrency.nonblocking;
 
 
-import org.checkerframework.checker.units.qual.A;
-import org.example.examples.util.Printer;
+import org.example.examples.concurrency.sync.SynchronizedStatement;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -19,14 +18,12 @@ public class AtomicClasses {
 
     public static void main(String[] args) throws InterruptedException {
 
-        AtomicLong counter = new AtomicLong();
-
+        AtomicEvenCounter counter = new AtomicEvenCounter();
         ExecutorService executorService = Executors.newCachedThreadPool();
-
         CountDownLatch latch = new CountDownLatch(100);
         for (int i = 0; i < 100; i++) {
             executorService.submit(() -> {
-                counter.incrementAndGet();
+                counter.increment();
                 latch.countDown();
             });
         }
@@ -37,6 +34,21 @@ public class AtomicClasses {
 
         // 其他原子类
         AtomicBoolean ready = new AtomicBoolean(true);
+    }
+
+    private static class AtomicEvenCounter implements SynchronizedStatement.EvenCounter {
+        private final AtomicLong counter = new AtomicLong(0);
+
+
+        @Override
+        public void increment() {
+            counter.getAndAdd(2);
+        }
+
+        @Override
+        public long get() {
+            return counter.get();
+        }
     }
 }
 
