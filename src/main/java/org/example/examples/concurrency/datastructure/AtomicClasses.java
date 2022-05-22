@@ -1,4 +1,4 @@
-package org.example.examples.concurrency.nonblocking;
+package org.example.examples.concurrency.datastructure;
 
 
 import org.example.examples.concurrency.sync.SynchronizedStatement;

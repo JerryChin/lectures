@@ -1,4 +1,4 @@
-package org.example.examples.concurrency.threadpool;
+package org.example.examples.concurrency.executor;
 
 import java.util.List;
 import java.util.concurrent.*;

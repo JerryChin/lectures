@@ -9,6 +9,7 @@ import sun.misc.Unsafe;
 public class CAS {
 
     public static void main(String[] args) {
+
         Unsafe.getUnsafe();
     }
 }
