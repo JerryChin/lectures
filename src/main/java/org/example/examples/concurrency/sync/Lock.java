@@ -49,11 +49,11 @@ public class Lock {
         private final Condition notEmpty = lock.newCondition();
 
         public void dispatch() throws InterruptedException {
-            print("尝试派送");
+//            print("尝试派送");
 
             lock.lock();
 
-            print("开始派送");
+//            print("开始派送");
 
             try {
                 while (email == null) {
@@ -64,8 +64,8 @@ public class Lock {
                 print("派送邮件： " + email);
                 email = null;
 
-                print("可以接收新的邮件");
-                notFull.signalAll();
+//                print("可以接收新的邮件");
+                notFull.signal();
             } finally {
                 lock.unlock();
             }
@@ -73,11 +73,11 @@ public class Lock {
         }
 
         public void post(String email) throws InterruptedException {
-            print("尝试邮寄： " + email);
+//            print("尝试邮寄： " + email);
             lock.lock();
             try {
 
-                print("开始邮寄： " + email);
+//                print("开始邮寄： " + email);
 
                 while (this.email != null) {
                     print("快递挤压： " + email);
@@ -88,8 +88,8 @@ public class Lock {
                 print("放置邮寄： " + email);
                 this.email = email;
 
-                print("呼叫快递员： " + email);
-                notEmpty.signalAll();
+//                print("呼叫快递员： " + email);
+                notEmpty.signal();
             } finally {
                 lock.unlock();
             }
