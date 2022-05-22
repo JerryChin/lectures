@@ -1,4 +1,4 @@
-package org.example.examples.concurrency.nonblocking;
+package org.example.examples.concurrency.nonsync;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
