@@ -1,33 +1,32 @@
-package org.example.examples;
+package org.example.examples.concurrency.problems;
 
 /**
- * Hello world!
- *
+ * 死锁演示
  */
-public class DeadLockApp {
+public class DeadLock {
 
     public static final Object A = new Object();
     public static final Object B = new Object();
 
-
     public static void main( String[] args ) throws InterruptedException {
-       System.out.println( "Hello World!" );
 
-       new Thread(() -> {
-           synchronized (A) {
-               System.err.println("A lock granted.");
+        // 先锁定 A 再锁定 B
+        new Thread(() -> {
+            synchronized (A) {
+                System.err.println("A lock granted.");
 
-               try {
-                   Thread.sleep(1000);
-               } catch (InterruptedException e) {
-                   throw new RuntimeException(e);
-               }
-               synchronized (B) {
-                   System.err.println("B lock granted.");
-               }
-           }
-       }).start();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                synchronized (B) {
+                    System.err.println("B lock granted.");
+                }
+            }
+        }).start();
 
+        // 先锁定 B 再锁定 A
         new Thread(() -> {
             synchronized (B) {
                 System.err.println("B lock granted.");
